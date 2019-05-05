@@ -1,0 +1,32 @@
+provider "github" {
+  token        = "${var.github_token}"
+  organization = "${var.github_organization}"
+}
+
+// Creating Teams
+
+resource "github_team" "team-1" {
+  name        = "team-1"
+  description = "This is team 1 description."
+  privacy     = "closed"
+}
+
+resource "github_team" "team-2" {
+  name        = "team-2"
+  description = "This is team 2 description."
+  privacy     = "closed"
+}
+
+// Creating repositories
+
+resource "github_repository" "example-repo-1" {
+  name = "example-repo-1"
+  description = "A repository created automated by terraform."
+  private = false 
+}
+
+resource "github_repository" "example-repo-2" {
+  name = "example-repo-2"
+  description = "A repository created automated by terraform."
+  private = false 
+}
